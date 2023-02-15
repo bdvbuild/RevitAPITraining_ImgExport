@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+	<AddIn Type="Command">
+		<Assembly>"C:\Doc\RevitApi\RevitAPITraining_ImgExport.dll"</Assembly>
+		<AddInId>B5351E45-3FBA-4C50-A751-AA1334F5879B</AddInId>
+		<FullClassName>RevitAPITraining_ImgExport.Main</FullClassName>
+		<VendorId>bdvbuild</VendorId>
+		<Text>8.3 Экспорт изображения</Text>
+	</AddIn>
+</RevitAddIns>
