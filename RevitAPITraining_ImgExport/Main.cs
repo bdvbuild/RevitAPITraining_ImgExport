@@ -3,6 +3,7 @@ using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Transaction = Autodesk.Revit.DB.Transaction;
 
@@ -15,7 +16,7 @@ namespace RevitAPITraining_ImgExport
         {
             Document doc = commandData.Application.ActiveUIDocument.Document;
 
-            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "export");
             ViewPlan viewPlan = new FilteredElementCollector(doc)
                 .OfClass(typeof(ViewPlan))
                 .Cast<ViewPlan>()
@@ -24,7 +25,8 @@ namespace RevitAPITraining_ImgExport
 
             ImageExportOptions imgOption = new ImageExportOptions()
             {
-                FilePath = path,
+                ExportRange = ExportRange.SetOfViews,
+                FilePath = path
             };
             imgOption.SetViewsAndSheets(new List<ElementId> { viewPlan.Id });
 
